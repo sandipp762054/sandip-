@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Patterns</title>
+</head>
+
+<body>
+
+    <button id="btn1" onclick="func1();">Pattern 1</button>
+    <button id="btn2" onclick="func2();">Pattern 2</button>
+
+    <script>
+        function func1() {
+            let n=6;
+            for(let i=n; i>=1; i--){
+                for(let j=n; j>=i; j--){
+                    document.write("*");
+                }
+                for(let j=i*2; j>1; j--){
+                    document.write("&nbsp;");
+                }
+                for(let j=0; j<=i*2-1; j++){
+                    document.write("&nbsp;");
+                }
+                for(let j=n; j>=i; j--){
+                    document.write("*");
+                }
+                document.write("<br>");
+            }
+
+            for(let i=0; i<=n; i++){
+                for(let j=n; j>=i; j--){
+                    document.write("*");
+                }
+                for(let j=i*2; j>1; j--){
+                    document.write("&nbsp;");
+                }
+                for(let j=0; j<=i*2-1; j++){
+                    document.write("&nbsp;");
+                }
+                for(let j=n; j>=i; j--){
+                    document.write("*");
+                }
+                document.write("<br>");
+            }
+        }
+
+        function func2(){
+            let n=6;
+            for(let i=1; i<=n; i++){
+                for(let j=n*2; j>i*2; j--){
+                    document.write("&nbsp;");
+                }
+                for(let j=1;j<=i; j++){
+                    document.write(j);
+                }
+                for(let j=1;j<=i; j++){
+                    document.write(j);
+                }
+                document.write("<br>");
+            }
+            for(let i=n-1; i>=1; i--){
+                for(let j=n*2; j>i*2; j--){
+                    document.write("&nbsp;");
+                }
+                for(let j=1;j<=i; j++){
+                    document.write(j);
+                }
+                for(let j=1;j<=i; j++){
+                    document.write(j);
+                }
+                document.write("<br>");
+            }
+        }
+    </script>
+</body>
+
+</html>

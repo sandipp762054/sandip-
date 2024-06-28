@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Match the number</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-color: aquamarine;
+        }
+
+        .container {
+            display: flex;
+            justify-content: space-around;
+            width: 100vw;
+        }
+
+        .box {
+            border: 2px solid black;
+            width: 50vw;
+            align-items: center;
+            text-align: center;
+        }
+
+        .btn {
+            width: 100px;
+            padding: 5px;
+            margin-bottom: 5px;
+            margin-top: 15px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="box">
+            <h1>Player 1</h1><br><br>
+            <h2 id="str1">Number 1</h2>
+            <button id="btn1" class="btn">Click</button><br><br>
+
+
+            <h2 id="str2">Number 2</h2>
+            <button id="btn2" class="btn" disabled>Click</button><br><br>
+            <h2>Your Score: </h2>
+            <h2 id="str3">Score</h2>
+        </div>
+        <div class="box">
+            <h1>Player 2</h1><br><br>
+            <h2 id="str4">Number 3</h2>
+            <button id="btn3" class="btn" disabled>Click</button><br><br>
+
+            <h2 id="str5">Number 4</h2>
+            <button id="btn4" class="btn" disabled>Click</button><br><br>
+            <h2>Your Score: </h2><h2 id="str6">Score</h2>
+        </div>
+    </div>
+    <center><br><br>
+        <h1 id="str7">Result</h1>
+    </center>
+
+    <script>
+        document.getElementById('btn1').onclick = function () {
+            let a = parseInt(Math.random() * 5 + 1);
+            document.getElementById('str1').textContent = a;
+            let btn1 = document.getElementById('btn1');
+            btn1.disabled = true;
+            let btn2 = document.getElementById('btn2');
+            btn2.disabled = false;
+        }
+
+        let count = 0, count2 = 0;
+        document.getElementById('btn2').onclick = function () {
+            let a = parseInt(Math.random() * 5 + 1);
+            document.getElementById('str2').textContent = a;
+            let b = document.getElementById('str1').textContent;
+            count = count + 1;
+            document.getElementById('str3').textContent = count;
+            if (a == b) {
+                let btn2 = document.getElementById('btn2');
+                btn2.disabled = true;
+                let btn3 = document.getElementById('btn3');
+                btn3.disabled = false;
+            }
+        }
+
+        document.getElementById('btn3').onclick = function () {
+            let a = parseInt(Math.random() * 5 + 1);
+            document.getElementById('str4').textContent = a;
+            let btn3 = document.getElementById('btn3');
+            btn3.disabled = true;
+            let btn4 = document.getElementById('btn4');
+            btn4.disabled = false;
+        }
+
+        document.getElementById('btn4').onclick = function () {
+            let a = parseInt(Math.random() * 5 + 1);
+            document.getElementById('str5').textContent = a;
+            let b = document.getElementById('str4').textContent;
+            let c = document.getElementById('str3').textContent;
+            count2 = count2 + 1;
+            document.getElementById('str6').textContent = count2;
+            if (count2 < c) {
+                if (a == b) {
+                    document.getElementById('str7').textContent = "Player 2 won!";
+                    let btn4 = document.getElementById('btn4');
+                    btn4.disabled = true;
+                }
+            }
+            else if (count2 == c) {
+                if (a == b) {
+                    document.getElementById('str7').textContent = "It's Tie!";
+                    let btn4 = document.getElementById('btn4');
+                    btn4.disabled = true;
+                }
+                else {
+                    document.getElementById('str7').textContent = "Player 1 won!";
+                    let btn4 = document.getElementById('btn4');
+                    btn4.disabled = true;
+                }
+            }
+        }
+    </script>
+</body>
+
+
+</html>
